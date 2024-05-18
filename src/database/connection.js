@@ -1,5 +1,5 @@
 import sql from 'mssql'
-import config from '../config'
+import config from '../config.js'
 
 const dbSettings = {
     user: config.dbUser, 
@@ -7,8 +7,8 @@ const dbSettings = {
     server: config.dbServer,
     database: config.dbDatabase,
     options: {
-        encrypt: true,
-        trustServerCertificate: true,
+        encrypt: true, // for azure
+        trustServerCertificate: true, // change to true for local dev / self-signed certs
     }
 };
 

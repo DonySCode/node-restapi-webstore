@@ -1,0 +1,26 @@
+@api = http://localhost:3000/
+
+### GET Categories
+GET {{api}}categories
+
+### Get Category by id
+GET {{api}}categories/6
+
+### Get total Categories
+GET {{api}}categories/count
+
+### Add new Category
+POST {{api}}categories
+Content-Type: application/json
+
+{
+    "name": "Beauty"
+}
+
+### Update a category
+PUT {{api}}categories/7
+Content-Type: application/json
+
+{
+    "name": "Personal Car"
+}

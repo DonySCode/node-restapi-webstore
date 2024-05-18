@@ -1,10 +1,16 @@
-
-export const queries = {
-    getAll: 'SELECT * FROM @table',
-    getById: 'SELECT * FROM @table WHERE Id = @Id',
-    getTotal: 'SELECT COUNT(*) FROM @table',
-    delete: 'DELETE FROM [webstore].[dbo].[@table] WHERE Id = @Id',
-    addNewProduct: 'INSERT INTO Products (name, description, quantity) VALUES (@name, @description, @quantity)',
-
-    updateProductById: 'UPDATE Products SET Name = @name, Description = @description, Quantity = @quantity WHERE Id = @Id'
-};
+export function queries(tableName) {
+    const queries = {
+        // Generic queries
+        getAll: `SELECT * FROM ${tableName}`,
+        getById: `SELECT * FROM ${tableName} WHERE Id = @Id`,
+        getTotal: `SELECT COUNT(*) FROM  ${tableName}`,
+        delete: `DELETE FROM [webstore].[dbo].[${tableName}] WHERE Id = @Id`, 
+        // Categories special queries
+        addNewCategory: 'INSERT INTO Categories (name) VALUES (@name)',
+        updateCategory: 'UPDATE Categories SET Name = @name WHERE Id = @Id',
+        // Products special queries
+        addNewProduct: 'INSERT INTO Products (name, description, price, image, categoryid) VALUES (@name, @description, @price, @image, @categoryid)',
+        updateProduct: 'UPDATE Products SET Name = @name, Description = @description, Price = @price, Image = @image, CategoryID = @categoryid WHERE Id = @Id',
+    };
+    return queries;
+}

@@ -1,8 +1,7 @@
 import express from "express";
-import { config } from "./config";
+import config from "./config.js";
 
-import productsRoutes from './routes/products.routes';
-import categoriesRoutes from './routes/categories.routes';
+import categoriesRoutes from './routes/categories.routes.js';
 
 const app = express();
 
@@ -13,7 +12,6 @@ app.set('port', config.port);
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.use(productsRoutes);
 app.use(categoriesRoutes);
 
 export default app;
