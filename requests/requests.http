@@ -1,26 +1,38 @@
 @api = http://localhost:3000/
 
-### GET Categories
-GET {{api}}categories
+### GET Products
+GET {{api}}products
 
-### Get Category by id
-GET {{api}}categories/6
+### Get Product by id
+GET {{api}}products/12
 
 ### Get total Categories
-GET {{api}}categories/count
+GET {{api}}products/count
 
 ### Add new Category
-POST {{api}}categories
+POST {{api}}products
 Content-Type: application/json
 
 {
-    "name": "Beauty"
+    "name": "Laptop Razer",
+    "description": "Razer gamer",
+    "price": 2000,
+    "image": "https://m.media-amazon.com/images/I/81+l7hSFLYL.jpg",
+    "categoryid": 8
 }
 
 ### Update a category
-PUT {{api}}categories/7
+PUT {{api}}products/2
 Content-Type: application/json
 
 {
-    "name": "Personal Car"
+    "name": "Laptop MSI",
+    "description": "MSI Laptop para juegos GF63 Premium",
+    "price": 60000,
+    "image": "https://m.media-amazon.com/images/I/716sWoIVxDS.jpg",
+    "categoryid": 1
 }
+
+### Delete a Category
+DELETE {{api}}products/10
+
