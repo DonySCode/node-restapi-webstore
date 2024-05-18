@@ -1,4 +1,5 @@
 import app from './app.js'
 
-app.listen(3000)
-console.log('servidor iniciado 2')
+app.listen(app.get('port'))
+
+console.log('servidor iniciado en puerto', app.get('port'))

@@ -1,5 +1,19 @@
 import express from "express";
+import { config } from "./config";
 
-const app = express()
+import productsRoutes from './routes/products.routes';
+import categoriesRoutes from './routes/categories.routes';
 
-export default app
+const app = express();
+
+//configuracion
+app.set('port', config.port);
+
+//middlewares
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+app.use(productsRoutes);
+app.use(categoriesRoutes);
+
+export default app;
